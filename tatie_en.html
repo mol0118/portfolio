@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standing Arts | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .work-item img, .work-item video {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .work-item:hover img { transform: scale(1.02); }
+        .back-btn-area { text-align: center; margin: 40px 0; }
+        .back-btn {
+            display: inline-block; padding: 10px 30px; border: 2px solid #333; color: #333;
+            text-decoration: none; border-radius: 50px; font-weight: bold; transition: 0.3s;
+        }
+        .back-btn:hover { background: #333; color: #fff; }
+    </style>
+</head>
+<body>
+
+    <header class="hero" style="min-height: 40vh;">
+        <h1>Standing / Character Works</h1>
+        <p>Portfolio of Standing Illustrations & Character Designs</p>
+    </header>
+
+    <nav class="category-nav">
+        <ul>
+            <li><a href="sd_en.html">SD / Chibi</a></li>
+            <li><a href="tatie_en.html" class="active">Standing</a></li>
+            <li><a href="illust_en.html">Illustration</a></li>
+            <li><a href="animation_en.html">Animation / GIF</a></li>
+        </ul>
+    </nav>
+
+    <div class="work-grid">
+        <div class="work-item"><img src="images/imge(4).GIF" alt=""></div>
+        <div class="work-item"><img src="images/Image (3).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (15).png" alt=""></div>
+        <div class="work-item"><img src="images/Image (14).png" alt=""></div>
+        <div class="work-item"><img src="images/Image (13).png" alt=""></div>
+        <div class="work-item"><img src="images/Image (4).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (30).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (12).png" alt=""></div>
+    </div>
+
+    <div class="back-btn-area">
+        <a href="en.html" class="back-btn">← Back to TOP</a>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close-btn">&times;</span>
+        <div class="modal-content-wrapper">
+            <img class="modal-content" id="expandedImg" style="display:none;">
+            <video class="modal-content" id="expandedVideo" controls style="display:none;"></video>
+            <div id="watermarkContainer" class="watermark-layer"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

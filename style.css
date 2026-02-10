@@ -1,0 +1,1071 @@
+/* --- 基本設定 --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+    object-fit: cover; /* 画像の比率が違っても枠に合わせてトリミング */
+}
+
+/* --- レイアウト枠 --- */
+section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 50px;
+    color: #414141;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    display: table;       /* 文字の長さに合わせて箱を縮める */
+    margin: 0 auto 50px;
+    left: 50%;
+}
+
+/* --- ヘッダー (Hero) --- */
+.hero {
+    min-height: 80vh; /* 最低でも画面の80%の高さ */
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.hero-img {
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 2 / 1; /* 横2:縦1 */
+    background-color: #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+/* --- ギャラリー --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.gallery-item {
+    aspect-ratio: 1 / 1; /* 正方形 */
+    background-color: #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* --- 料金表エリア --- */
+.price-category {
+    margin-bottom: 80px;
+}
+
+.category-title {
+    font-size: 1.4rem;
+    color: #333;
+    border-left: 6px solid #444;
+    padding-left: 15px;
+    margin-bottom: 30px;
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.price-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* 料金カード */
+.price-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 20px;
+    width: calc(33.333% - 14px); /* PCでは3列 */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.price-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    background-color: #555;
+    color: #fff;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.price-sample {
+    width: 100%;
+    aspect-ratio: 3 / 2; /* 横3:縦2 */
+    background-color: #f0f0f0;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 画像がない時のダミー文字用 */
+.price-sample span {
+    color: #aaa; font-size: 0.8rem;
+}
+
+.price-amount {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #e53935;
+    margin: 10px 0;
+}
+
+.price-detail {
+    font-size: 0.9rem;
+    color: #666;
+    text-align: left;
+    margin-top: 15px;
+    list-style: none;
+}
+
+.price-detail li {
+    margin-bottom: 5px;
+    padding-left: 1rem;
+    text-indent: -1rem;
+}
+.price-detail li::before { content: "・"; }
+
+/* 一枚絵・特別カード */
+.price-card.special {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fffaf0;
+    border-color: #f0e6d2;
+}
+
+/* --- オプションテーブル --- */
+.option-area {
+    margin-top: 40px;
+}
+
+.option-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.option-table th, .option-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.option-table th {
+    background-color: #666;
+    color: #fff;
+    font-weight: normal;
+    width: 30%;
+}
+
+.option-table tr:last-child td { border-bottom: none; }
+
+/* --- 流れ・ガイドライン --- */
+.flow-steps {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    text-align: left; /* ★文字を左揃えにする */
+    max-width: 800px; /* 横に広がりすぎないようにする */
+    margin: 0 auto;   /* 箱自体は画面の真ん中に */
+}
+
+.flow-item {
+    display: flex;        /* ★横並びにする魔法 */
+    align-items: baseline;/* 文字の高さ（ベースライン）を揃える */
+    gap: 20px;            /* 「Step」と「説明」の間の隙間 */
+    
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+.flow-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+/* 「Step 1」などの太字部分のデザイン */
+.flow-item strong {
+    min-width: 70px; /* ★幅を固定して、縦のラインを揃える */
+    color: #e53935;  /* 少し目立つ色に（お好みで変えてね） */
+    font-weight: bold;
+    flex-shrink: 0;  /* 画面が狭くなってもStepの幅を縮めない */
+}
+
+.guidelines {
+    background-color: #fff3e0;
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 30px;
+    font-size: 0.95rem;
+}
+
+/* --- お問い合わせ --- */
+.contact-section {
+    text-align: center;
+    background-color: #fff;
+    padding: 80px 20px;
+    margin-top: 60px;
+    border-top: 1px solid #eee;
+}
+
+/* Contactの文字のズレを直す */
+.contact-section h2 {
+    left: auto;
+    transform: none;
+}
+
+.contact-btn {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 15px 30px; /* 文字数に合わせて調整 */
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    min-width: 200px; /* 幅を揃える */
+}
+.contact-btn:hover { background-color: #555; transform: translateY(-2px); }
+
+/* --- 言語切り替えボタン (センター配置版) --- */
+.lang-switch {
+    position: static;      /* 固定を解除 */
+    margin-bottom: 20px;   /* 下の画像との隙間 */
+    text-align: center;    /* 真ん中に寄せる */
+}
+
+.lang-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #333;
+    padding: 8px 30px;     /* ボタンを少し大きくして押しやすく */
+    border-radius: 20px;
+    font-size: 0.95rem;
+    background: #fff;      /* 背景を白に */
+    transition: all 0.3s;
+}
+
+.lang-btn:hover {
+    background: #333;
+    color: #fff;
+    transform: translateY(-2px); /* ホバーで少し浮く */
+}
+
+.lang-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #333;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s;
+}
+
+.lang-btn:hover {
+    background: #333;
+    color: #fff;
+}
+
+/* --- 目次ナビゲーション --- */
+.toc-nav {
+    background-color: transparent;
+    padding: 30px 0;
+    border-bottom: none;
+    box-shadow: none;
+}
+
+.toc-list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    flex-wrap: wrap; /* スマホで折り返す */
+    padding: 0 20px;
+}
+
+.toc-list a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.toc-list a:hover {
+    background-color: #e53935;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.toc-label {
+    text-align: center;
+    font-weight: bold;
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    letter-spacing: 0.1em;
+}
+
+/* --- カテゴリリンク --- */
+.category-link {
+    position: relative;
+    cursor: pointer;
+}
+
+.category-link a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.category-link::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.category-link:hover::after {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.category-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+}
+
+/* --- 複数のボタンを並べる設定 --- */
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* ボタン同士の間隔 */
+    flex-wrap: wrap; /* スマホで縦に並ぶようにする */
+}
+
+/* 「つなぐ」ボタンの色（オレンジ系） */
+.tsunagu {
+    background-color: #fca311;
+    border-color: #fca311;
+}
+.tsunagu:hover {
+    background-color: #e8960f;
+}
+
+/* 「X」ボタンの色（黒） */
+.x-sns {
+    background-color: #000;
+    border-color: #000;
+}
+.x-sns:hover {
+    background-color: #333;
+}
+
+/* --- 一枚絵サンプル画像の比率解除 --- */
+.price-card.special .price-sample {
+    aspect-ratio: auto !important; 
+    height: auto !important;
+    min-height: 0 !important;
+}
+
+/* --- 動画の設定（PC/スマホ共通） --- */
+.gallery-item video,
+.hero-img video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important; /* ズームさせずに全体を表示 */
+    background-color: #000;
+}
+
+/* --- スマホ対応 (レスポンシブ) --- */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    
+    /* 料金カードを縦積みに */
+    .price-card { width: 100%; max-width: 100%; margin-bottom: 20px; }
+    .price-list { gap: 0; }
+    
+    /* オプション表をカード風に */
+    .option-table th { display: none; }
+    
+    .option-table tr {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        padding: 15px 10px;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .option-table td {
+        padding: 0;
+        border: none;
+        display: block;
+    }
+
+    /* 1列目：項目名 */
+    .option-table td:nth-child(1) {
+        font-weight: bold;
+        color: #333;
+        margin-right: 8px;
+    }
+    .option-table td:nth-child(1)::after {
+        content: "|";
+        margin-left: 8px;
+        color: #ccc;
+        font-weight: normal;
+    }
+
+    /* 2列目：金額 */
+    .option-table td:nth-child(2) {
+        font-weight: bold;
+        color: #e53935;
+    }
+
+    /* 3列目：備考 */
+    .option-table td:nth-child(3) {
+        width: 100%;
+        font-size: 0.85rem;
+        color: #888;
+        margin-top: 5px;
+    }
+
+    /* 目次 */
+    .toc-list { gap: 10px; }
+    .toc-list a { font-size: 0.8rem; padding: 8px 12px; }
+}
+
+/* --- カテゴリリンク (画像全体をクリック可能にする) --- */
+
+/* リンク全体を「カード」として扱う設定 */
+.category-card {
+    display: block;          /* リンクを箱の形にする */
+    position: relative;      /* 文字を乗せる基準点 */
+    width: 100%;
+    aspect-ratio: 1 / 1;     /* 正方形にする */
+    border-radius: 8px;      /* 角を丸く */
+    overflow: hidden;        /* はみ出た画像をカット */
+    text-decoration: none;   /* 文字の下線を消す */
+}
+
+/* 中にある画像の設定 */
+.category-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* 枠いっぱいに綺麗に埋める */
+    transition: transform 0.3s; /* 拡大アニメーション用 */
+}
+
+/* ホバーした時に画像を少し拡大 */
+.category-card:hover img {
+    transform: scale(1.05);
+}
+
+/* 画像の上に被せる「暗いフィルター」と「文字の箱」 */
+.category-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* 画像を少し暗くする (30%) */
+    display: flex;
+    justify-content: center; /* 左右の真ん中 */
+    align-items: center;     /* 上下の真ん中 */
+    transition: background 0.3s;
+}
+
+/* ホバーした時に少し明るくする */
+.category-card:hover .category-overlay {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* 真ん中の文字設定 */
+.category-text {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.7); /* 文字を見やすく影をつける */
+    letter-spacing: 0.05em;
+}
+
+/* --- モーダル内の動画設定 --- */
+#expandedVideo {
+    max-width: 90%;  /* 横幅いっぱいになりすぎないように */
+    max-height: 90vh; /* 画面からはみ出さないように */
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    background: #000; /* 動画の背景は黒に */
+}
+
+/* ▼▼▼ ここから下を全部書き換えてください ▼▼▼ */
+
+/* --- フェードインのアニメーション定義 --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- 画像拡大モーダル本体 --- */
+.modal {
+    display: none; /* 普段は隠しておく */
+    position: fixed;
+    z-index: 1000; /* 最前面に */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.85); /* 背景を暗く */
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px); /* 背景をぼかす */
+    
+    /* ★ここでフェードインを適用（0.3秒かけて表示） */
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* 画像と透かしを包む枠（ここが重ね合わせの基準） */
+.modal-content-wrapper {
+    position: relative; /* ★超重要：これを基準に透かしを配置する */
+    max-width: 90%;
+    max-height: 90vh;   /* 画面の高さの90%まで */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 拡大される画像・動画 */
+.modal-content {
+    width: auto;        /* 元の比率を維持 */
+    height: auto;
+    max-width: 100%;    /* 枠からはみ出さない */
+    max-height: 90vh;   /* 画面の高さからはみ出さない */
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    display: block;     /* 隙間をなくす */
+}
+
+/* ▼▼▼ ウォーターマーク設定 (ここから下を書き換え) ▼▼▼ */
+
+/* 透かしを敷き詰めるための透明なシート */
+.watermark-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* クリックを邪魔しない */
+    overflow: hidden;     /* 枠からはみ出た分は隠す */
+    
+    /* 文字を等間隔に並べる設定 (グリッドレイアウト) */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 横に3つ並べる */
+    grid-template-rows: repeat(3, 1fr);    /* 縦に3つ並べる */
+    align-items: center;
+    justify-items: center;
+}
+
+/* ひとつひとつの透かし文字の設定 */
+.watermark-unit {
+    color: #ffffff;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    line-height: 1.5;
+    white-space: nowrap; /* 改行しない */
+    
+    /* 角度と透明度 */
+    transform: rotate(-30deg); /* 斜めにする */
+    opacity: 0.25;             /* 透明度 */
+    
+    /* 文字サイズ (画面幅に合わせて調整) */
+    font-size: 1rem;
+    
+    /* 文字の影 (白文字が見えやすいように黒いフチをつける) */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* スマホの時は文字を小さく、数を減らす調整 */
+@media (max-width: 768px) {
+    /* ... */
+    .watermark-unit {
+        /* ▼▼▼ ここを書き換える (スマホ用) ▼▼▼ */
+        font-size: 0.7rem; /* ← 元は 1rem でした。「0.7rem」くらいがおすすめです */
+    }
+}
+
+/* --- 料金表と目次の間を狭くする調整 --- */
+
+/* 1. 「料金表」タイトルの下の余白を減らす */
+#price h2 {
+    margin-bottom: 15px; /* 元々は50pxありました */
+}
+
+/* 2. 「目次」エリアの上の余白を減らす */
+.toc-nav {
+    padding-top: 10px; /* 元々は30pxありました */
+}
+
+
+/* --- 一枚絵サンプルを2枚きれいに並べる設定 (修正版) --- */
+
+/* 1. 画像を入れる「箱」の設定 */
+.price-card.special .price-sample {
+    display: flex !important;       /* 横並びにする */
+    justify-content: center;        /* 真ん中に寄せる */
+    gap: 5px;                       /* ★隙間を5pxに狭めました */
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0;
+    background: transparent;
+    margin-bottom: 15px;
+    aspect-ratio: auto !important;
+    min-height: auto !important;
+}
+
+/* 2. 中にある「画像」の設定 */
+.price-card.special .price-sample img {
+    /* ★ここを変更：幅を「自動」にして、絵の横幅に合わせる */
+    width: auto !important;
+    
+    /* ただし、横長すぎても2枚並ぶように最大幅を制限する */
+    max-width: 49% !important;
+    
+    /* 高さは固定 */
+    height: 250px !important;
+    
+    /* 比率を崩さない */
+    object-fit: contain !important;
+    
+    border-radius: 4px;
+    margin: 0 !important;
+}
+
+/* スマホで見た時の調整 */
+@media (max-width: 768px) {
+    .price-card.special .price-sample img {
+        height: 180px !important; /* スマホでは高さを少し低くする */
+    }
+}
+
+/* --- お問い合わせエリアの整理 (グループ分け版) --- */
+
+/* 全体を包む枠 */
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* グループ同士の縦の間隔 */
+}
+
+/* 各グループの箱 */
+.contact-group {
+    background-color: #fcfcfc; /* うっすら背景色をつける */
+    padding: 30px 20px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+}
+
+/* グループのタイトル文字 (用途ラベル) */
+.group-label {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 20px;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    position: relative;
+    display: inline-block;
+}
+/* タイトルの下に短い線を引く装飾 */
+.group-label::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: #ddd;
+    margin: 5px auto 0;
+}
+
+/* ボタンを横並びにする設定 */
+.group-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* --- メールフォームボタン (サイズ修正版) --- */
+.mail-btn {
+    /* 大きくする設定を削除して、標準サイズに戻します */
+    min-width: 200px;      /* 他のボタンと同じ幅 */
+    padding: 15px 30px;    /* 他のボタンと同じ大きさ */
+    font-size: 1.1rem;     /* 他のボタンと同じ文字サイズ */
+    
+    background-color: #333;
+    border: 2px solid #333;
+}
+.mail-btn:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+    .group-links {
+        flex-direction: column; /* スマホでは縦積みに */
+        align-items: center;
+    }
+    .contact-btn {
+        width: 100%; /* 幅いっぱいに */
+        max-width: 300px;
+    }
+}
+
+/* --- style.css の一番下 --- */
+
+/* --- style.css の一番下 --- */
+
+/* イラストを配置する背景レイヤー */
+.deco-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* クリックを邪魔しない */
+    z-index: 100; /* 手前に表示 */
+}
+
+/* ★アニメーションの動きを定義 */
+@keyframes starFade {
+    0% { opacity: 0; }        /* 最初：見えない */
+    20% { opacity: 0.9; }     /* 1秒後：フワッと出る */
+    80% { opacity: 0.9; }     /* 4秒後まで：表示したまま */
+    100% { opacity: 0; }      /* 5秒後：消える */
+}
+
+/* 配置されるイラスト画像の設定 */
+.deco-illust {
+    position: absolute;
+    width: 80px;
+    height: auto;
+    
+    /* ★初期状態は見えないようにする */
+    opacity: 0; 
+    
+    /* 影をつけて少し浮かせる */
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.1));
+
+    /* ★ここでアニメーションを実行（5秒かけて再生して、最後は消えたままにする） */
+    animation: starFade 2s ease-out forwards;
+}
+
+/* --- ハンバーガーメニューの設定 --- */
+
+/* 1. 右上のボタン本体 */
+.hamburger-btn {
+    position: fixed; /* スクロールしても右上に固定 */
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #333; /* ボタンの背景色 */
+    border-radius: 50%;     /* 丸くする */
+    cursor: pointer;
+    z-index: 1000;          /* 最前面に表示 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 6px; /* 線の間隔 */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s;
+}
+.hamburger-btn:hover {
+    transform: scale(1.1); /* ホバーで少し大きく */
+}
+
+/* ボタンの中の3本線 */
+.hamburger-btn span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #fff; /* 線の色 */
+    transition: all 0.3s;
+    position: relative;
+}
+
+/* ▼ メニューが開いている時（クラスopenがついた時）のボタンの変化 */
+.hamburger-btn.open {
+    background-color: transparent; /* 背景を透明に */
+}
+.hamburger-btn.open span { background-color: #fff; } /* 開いた時の線の色 */
+
+/* 3本線をバツ印に変形させる魔法 */
+.hamburger-btn.open span:nth-child(1) { transform: rotate(45deg); top: 8px; }
+.hamburger-btn.open span:nth-child(2) { opacity: 0; }
+.hamburger-btn.open span:nth-child(3) { transform: rotate(-45deg); top: -8px; }
+
+
+/* 2. メニュー画面（全画面表示） */
+.global-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(51, 51, 51, 0.95); /* 背景色（少し透ける黒） */
+    z-index: 999; /* ボタンより少し奥 */
+    
+    /* 最初は隠しておく設定 */
+    opacity: 0;
+    pointer-events: none; /* クリックできないようにする */
+    transition: opacity 0.4s ease;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ▼ クラスopenがついたら表示 */
+.global-nav.open {
+    opacity: 1;
+    pointer-events: auto; /* クリック可能にする */
+}
+
+/* メニューリストのデザイン */
+.nav-list {
+    list-style: none;
+    text-align: center;
+}
+
+.nav-list li {
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(20px); /* 最初は少し下に置いておく */
+    transition: all 0.5s;
+}
+
+/* メニューが開いたら、リストをフワッと下から出す */
+.global-nav.open .nav-list li {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* 順番に出てくるように遅延時間をずらす */
+.global-nav.open .nav-list li:nth-child(1) { transition-delay: 0.1s; }
+.global-nav.open .nav-list li:nth-child(2) { transition-delay: 0.2s; }
+.global-nav.open .nav-list li:nth-child(3) { transition-delay: 0.3s; }
+.global-nav.open .nav-list li:nth-child(4) { transition-delay: 0.4s; }
+.global-nav.open .nav-list li:nth-child(5) { transition-delay: 0.5s; }
+
+.nav-list a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+.nav-list a:hover {
+    color: #ff69b4; /* ホバー時の色（ピンクなど） */
+}
+
+/* --- ギャラリーページ用 カテゴリメニュー --- */
+.category-nav {
+    margin: 20px auto 40px; /* 上下の余白 */
+    text-align: center;
+    max-width: 800px;
+}
+
+.category-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* ボタン同士の間隔 */
+    flex-wrap: wrap; /* スマホで折り返す */
+    padding: 0;
+}
+
+.category-nav li {
+    margin: 0;
+}
+
+.category-nav a {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 1px solid #ddd;
+    border-radius: 50px; /* 丸いボタンにする */
+    text-decoration: none;
+    color: #666;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    background: #fff;
+}
+
+/* ホバーした時と、現在地(active)のデザイン */
+.category-nav a:hover,
+.category-nav a.active {
+    background-color: #333; /* 黒背景 */
+    color: #fff;            /* 白文字 */
+    border-color: #333;
+    transform: translateY(-2px); /* 少し浮く */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* --- 1. 大枠を方眼紙のようにする --- */
+.work-grid {
+    display: grid; /* グリッドモードON */
+    
+    /* スマホでは1列、PCでは画面に合わせて自動で列を増やす設定 */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    
+    /* ★ここが重要：縦横の隙間を20pxで統一 */
+    gap: 20px; 
+    
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- 2. 各作品カードの形を整える --- */
+.work-item {
+    background: #fff;
+    border-radius: 8px; /* 角丸 */
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    
+    /* ★ポイント：画像の縦横比を正方形(1:1)に統一して揃える場合 */
+    /* （縦長の絵も正方形に切り抜かれて並びます） */
+    aspect-ratio: 1 / 1; 
+}
+
+/* --- 3. 画像の表示の仕方 --- */
+.work-item img {
+    width: 100%;
+    height: 100%;
+    
+    /* 枠に合わせてトリミングする（歪まない） */
+    object-fit: cover; 
+    
+    display: block;
+    transition: transform 0.3s;
+}
+
+/* マウスを乗せた時の動き（おまけ） */
+.work-item:hover img {
+    transform: scale(1.05); /* ちょっと拡大 */
+}
+
+/* Googleフォームボタンの色 */
+.form-btn {
+    background-color: #7248B9; /* Googleフォームっぽい紫 */
+    color: #fff !important;
+    border: none;
+}
+.form-btn:hover {
+    background-color: #5b3a95; /* ホバー時は少し濃く */
+    transform: translateY(-3px);
+}
+
+/* --- 最後のメッセージエリア --- */
+.closing-message {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #fff; /* 背景を白に */
+    /* 上下に点線を入れて、手紙っぽくする */
+    border-top: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+    margin-bottom: 0; /* 下のContactとくっつける */
+}
+
+.closing-message h3 {
+    font-family: 'Fredoka One', sans-serif; /* もし英語フォントがあれば */
+    font-size: 1.8rem;
+    color: #e53935; /* テーマカラーの赤/ピンク系 */
+    margin-bottom: 30px;
+    border: none; /* 下線を消す */
+}
+
+.closing-message p {
+    font-size: 1rem;
+    line-height: 2; /* 行間を広めにとって読みやすく */
+    color: #555;
+    letter-spacing: 0.05em;
+}

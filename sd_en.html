@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SD Works | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .work-item img, .work-item video {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .work-item:hover img { transform: scale(1.02); }
+        
+        .back-btn-area { text-align: center; margin: 40px 0; }
+        .back-btn {
+            display: inline-block;
+            padding: 10px 30px;
+            border: 2px solid #333;
+            color: #333;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .back-btn:hover { background: #333; color: #fff; }
+    </style>
+</head>
+<body>
+
+    <header class="hero" style="min-height: 40vh;">
+        <h1>SD / Chibi Works</h1>
+        <p>Portfolio of SD / Chibi Illustrations</p>
+    </header>
+
+    <nav class="category-nav">
+        <ul>
+            <li><a href="sd_en.html" class="active">SD / Chibi</a></li>
+            <li><a href="tatie_en.html">Standing</a></li>
+            <li><a href="illust_en.html">Illustration</a></li>
+            <li><a href="animation_en.html">Animation / GIF</a></li>
+        </ul>
+    </nav>
+
+    <div class="work-grid">
+        <div class="work-item"><img src="images/Image (9).png" alt=""></div>
+        <div class="work-item"><img src="images/IMG_1937.GIF" alt=""></div>
+        <div class="work-item"><img src="images/image (2).png" alt=""></div>
+        <div class="work-item"><img src="images/Image (18).png" alt=""></div>
+        <div class="work-item"><img src="images/Image (21).png" alt=""></div>
+        <div class="work-item"><img src="images/Image (6).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (12).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (20).png" alt=""></div>
+        <div class="work-item"><img src="images/Image (17).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (19).png" alt=""></div>
+        <div class="work-item"><img src="images/Image (19).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (22).png" alt=""></div>
+        <div class="work-item"><img src="images/Image (16).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (16).png" alt=""></div>
+        <div class="work-item"><img src="images/Image (8).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (9).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (10).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (11).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (18).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (13).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (14).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (15).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (20).jpg" alt=""></div>
+        <div class="work-item"><img src="images/Image (21).jpg" alt=""></div>
+    </div>
+
+    <div class="back-btn-area">
+        <a href="en.html" class="back-btn">← Back to TOP</a>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close-btn">&times;</span>
+        <div class="modal-content-wrapper">
+            <img class="modal-content" id="expandedImg" style="display:none;">
+            <video class="modal-content" id="expandedVideo" controls style="display:none;"></video>
+            <div id="watermarkContainer" class="watermark-layer"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
